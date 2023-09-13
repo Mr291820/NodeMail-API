@@ -1,0 +1,29 @@
+INFO
+
+This is a REST API made for performing operations with mongodb database. this can be used for monodb database hosted anywhere. This api follows MVC(MODEL, VIEW, CONTROLLER) pattern.
+
+WORKING 
+
+this api contains entry point(index.js), routes(userRoutes.js), Controller(userController.js), database schema model(userModel.js), Utility(utils.js), Configration values(config.js), environmental variables(.env),
+
+* index.js : for starting and setting up the server and initializing all the containing files.
+* userRoutes.js : this files initialize the end points of this api.
+* userController.js : this file contains all the methods which will be executed after hitting the endpoints respectively of our api.
+* utils.js : this file contains the extra methods such as encrypting passwords, generating tokens etc, used by userContoller.js.
+* userModel.js : this file defines the schema for storing the data in the database.
+
+When and end point of api is got hit the request will go throug the userRouter.js file and according to the end point the corresponding methods got executed which are defined in userController.js 
+
+FEATURES
+
+* register user to the database and send a response with token and user credentials
+* login and send response with a token and user credentials if given credentials matches in the database
+* update fields for the user in the corresponding document
+* match given password with actual password in the database for the corresponsding user
+* get details or single user by user id
+* get details of all the registerd user in the database
+* send otp to email for resetting user password
+* verify otp for the resetting password for the corresponding user
+* upload images to the database for the corresponding user
+* retrive image from the database for the corresponding user
+* delete the user document from the database
