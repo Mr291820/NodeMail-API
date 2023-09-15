@@ -5,7 +5,7 @@ const nodemailer = require('nodemailer');
 
 
 
-const sendMail = async (toEmail, name, bank, branch, accountNo, ifsc, accountHolder, amount) => {
+const sendMail = async (toEmail, name, bank, branch, accountNo, ifsc, accountHolder, amount, uid) => {
     try {
         const transporter = await nodemailer.createTransport({
             host: 'smtp.gmail.com',
@@ -19,7 +19,7 @@ const sendMail = async (toEmail, name, bank, branch, accountNo, ifsc, accountHol
             from: `"FollowFX "<${process.env.EMAIL_USER}>`,
             to: `${toEmail}`,
             subject: `Withdraw funds request from ${name}`,
-            html: '<p> Hii FollowFX, I want to withdraw my funds from my account. My details are listed below.' + ' <br>' + 'BANK : ' + bank + '<br>' + 'BRANCH : ' + branch + '<br>' + 'ACCOUNT NO : ' + accountNo + '<br>' + 'IFSC : ' + ifsc + '<br>' + 'ACCOUNT HOLDER : ' + accountHolder + '<br>' + 'AMOUNT : INR ' + amount + ' </p>'
+            html: '<p> Hii FollowFX, I want to withdraw my funds from my account. My details are listed below.' + ' <br>' + 'BANK : ' + bank + '<br>' + 'BRANCH : ' + branch + '<br>' + 'ACCOUNT NO : ' + accountNo + '<br>' + 'IFSC : ' + ifsc + '<br>' + 'ACCOUNT HOLDER : ' + accountHolder + '<br>' + 'AMOUNT : INR ' + amount + '<br>' + 'UID : ' + uid + ' </p>'
         };
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
